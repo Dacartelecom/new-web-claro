@@ -23,7 +23,7 @@ const Item: FC<ItemProps> = ({
     } else {
       setBackground('#18a2bd');
       setColor('#18a2bd');
-      setHeight('60px');
+      setHeight('50px');
     }
   },[selected]);
 

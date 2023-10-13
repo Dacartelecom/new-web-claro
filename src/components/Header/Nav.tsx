@@ -22,10 +22,6 @@ export const Nav = () => {
       mediaQuery.removeEventListener('change', handler);
     };
   }, []);
-  const mheight = isMobile ? '0px':'40px'
-
-console.log(mheight)
-
 
   const [activeModal, setActiveModal] = useState<boolean>(false);
   const [height, setHeight] = useState<string>('40px');
@@ -64,6 +60,14 @@ console.log(mheight)
       setMessageButton('ATENCIÓN AL CLIENTE Y/O RECLAMOS, HAZ CLIC AQUÍ')
     }
   },[pathname]);
+
+  useEffect(() => {
+    const mheight = isMobile ? '0px':'40px';
+    const mTop = isMobile ? '0%':'0%';
+
+    setHeight(mheight)
+    setTop(mTop)
+  },[isMobile])
 
   return (
     <>

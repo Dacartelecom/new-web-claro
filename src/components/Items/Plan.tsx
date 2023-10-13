@@ -1,10 +1,8 @@
 'use client'
 import { PlanProps } from "../../interfaces/Items.props"
-import Image from "next/image"
 import { FC, useEffect, useState } from "react"
 import Modal from "../Modal/Modal"
 import Form from "../Form/Form"
-import { usePathname, useSearchParams } from "next/navigation"
 
 const Plan: FC<PlanProps> = ({
   className,
@@ -26,8 +24,8 @@ const Plan: FC<PlanProps> = ({
   details
 }) => {
 
-  const params = useSearchParams();
-  const pathname = usePathname();
+  const params = new URLSearchParams(window.location.search);
+  const pathname = window.location.pathname;
 
   const [activeModal, setActiveModal] = useState<boolean>(false);
   const [activeModalDetails, setActiveModalDetails] = useState<boolean>(false);
@@ -159,8 +157,8 @@ const Plan: FC<PlanProps> = ({
           <div className="flex my-6 px-4">
             <div className="flex flex-[1] items-center justify-center">
               <div className="max-w-[100px] max-h-[37px]">
-                <Image
-                  src={ src }
+                <img
+                  src={ `${src}` }
                   alt={ alt }
                   width={ width }
                   height={ height }
@@ -183,8 +181,8 @@ const Plan: FC<PlanProps> = ({
         {
           noHeader &&
           <div className="w-full h-72 pt-6">
-            <Image
-              src={ src }
+            <img
+              src={ `${src}` }
               alt={ alt }
               width={ width }
               height={ height }
